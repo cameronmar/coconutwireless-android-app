@@ -22,7 +22,7 @@ Convert the existing multi-fragment navigation app into a full-screen WebView wr
 - Replace `NavHostFragment` and `BottomNavigationView` with a `WebView`.
 
 ### Code
-#### [MODIFY] [MainActivity.kt](file:///C:/Users/camer/AndroidStudioProjects/CoconutWirelessApp/app/src/main/java/com/example/coconutwirelessapp/MainActivity.kt)
+#### [MODIFY] [MainActivity.kt](file:///C:/Users/camer/AndroidStudioProjects/CoconutWirelessApp/app/src/main/java/com/thecoconutwirelessnetwork/app/MainActivity.kt)
 - Remove all navigation-related code (Drawer, BottomNav, NavController).
 - Initialize and configure the `WebView`:
     - Enable JavaScript.

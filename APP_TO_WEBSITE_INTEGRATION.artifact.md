@@ -13,7 +13,7 @@ The app exposes a native interface to the website's JavaScript. This allows the 
 
 ### Interface Details
 - **Bridge Name:** `AndroidBridge`
-- **Location in Android Code:** `com.example.coconutwirelessapp.WebAppInterface`
+- **Location in Android Code:** `com.thecoconutwirelessnetwork.app.WebAppInterface`
 
 ### Available Methods
 The website can call these methods directly from its JavaScript:
@@ -48,9 +48,9 @@ To send a notification to a specific user, the website needs to:
 
 ## 5. Required Files for Website Coder
 If sharing this project with a web developer, ensure they see:
-1. `app/src/main/java/com/example/coconutwirelessapp/MainActivity.kt`
-2. `app/src/main/java/com/example/coconutwirelessapp/WebAppInterface.kt`
-3. `app/src/main/java/com/example/coconutwirelessapp/MyFirebaseMessagingService.kt`
+1. `app/src/main/java/com/thecoconutwirelessnetwork/app/MainActivity.kt`
+2. `app/src/main/java/com/thecoconutwirelessnetwork/app/WebAppInterface.kt`
+3. `app/src/main/java/com/thecoconutwirelessnetwork/app/MyFirebaseMessagingService.kt`
 4. `app/src/main/AndroidManifest.xml`
 
 ---

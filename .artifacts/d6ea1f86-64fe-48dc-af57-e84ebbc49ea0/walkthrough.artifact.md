@@ -20,7 +20,7 @@ I have successfully converted your app into a full-screen WebView wrapper for `w
 ## ⚠️ Action Required
 To complete the setup and enable push notifications, you must:
 1. Create a project in the [Firebase Console](https://console.firebase.google.com/).
-2. Add an Android app with the package name `com.example.coconutwirelessapp`.
+2. Add an Android app with the package name `com.thecoconutwirelessnetwork.app`.
 3. Download the `google-services.json` file.
 4. **Copy the file into the `app/` folder** of your project in Android Studio.
 

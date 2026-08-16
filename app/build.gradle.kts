@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.coconutwirelessapp"
+    namespace = "com.thecoconutwirelessnetwork.app"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.coconutwirelessapp"
+        applicationId = "com.thecoconutwirelessnetwork.app"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

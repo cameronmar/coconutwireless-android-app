@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp.ui.transform
+package com.thecoconutwirelessnetwork.app.ui.transform
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coconutwirelessapp.R
-import com.example.coconutwirelessapp.databinding.FragmentTransformBinding
-import com.example.coconutwirelessapp.databinding.ItemTransformBinding
+import com.thecoconutwirelessnetwork.app.R
+import com.thecoconutwirelessnetwork.app.databinding.FragmentTransformBinding
+import com.thecoconutwirelessnetwork.app.databinding.ItemTransformBinding
 
 /**
  * Fragment that demonstrates a responsive layout pattern where the format of the content

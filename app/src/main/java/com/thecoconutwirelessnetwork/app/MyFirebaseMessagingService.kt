@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp
+package com.thecoconutwirelessnetwork.app
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

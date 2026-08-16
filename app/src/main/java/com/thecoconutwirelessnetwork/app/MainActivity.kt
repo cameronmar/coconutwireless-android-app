@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp
+package com.thecoconutwirelessnetwork.app
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -13,7 +13,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.coconutwirelessapp.databinding.ActivityMainBinding
+import com.thecoconutwirelessnetwork.app.databinding.ActivityMainBinding
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {

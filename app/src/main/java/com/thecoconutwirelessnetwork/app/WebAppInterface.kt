@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp
+package com.thecoconutwirelessnetwork.app
 
 import android.content.Context
 import android.webkit.JavascriptInterface

@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp.ui.slideshow
+package com.thecoconutwirelessnetwork.app.ui.slideshow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

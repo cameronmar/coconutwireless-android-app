@@ -1,4 +1,4 @@
-package com.example.coconutwirelessapp.ui.settings
+package com.thecoconutwirelessnetwork.app.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
