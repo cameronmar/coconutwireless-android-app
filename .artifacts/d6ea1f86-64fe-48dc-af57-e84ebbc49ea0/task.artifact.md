@@ -1,0 +1,12 @@
+- [x] Updating project dependencies and plugins for Firebase
+    - [x] Update `gradle/libs.versions.toml`
+    - [x] Update root `build.gradle.kts`
+    - [x] Update `app/build.gradle.kts`
+- [x] Configure AndroidManifest.xml (Permissions and Services)
+- [x] Simplify UI Layouts
+    - [x] Update `activity_main.xml`
+    - [x] Update `app_bar_main.xml`
+    - [x] Update `content_main.xml`
+- [x] Implement WebView logic in `MainActivity.kt`
+- [x] Implement Push Notification service (`MyFirebaseMessagingService.kt`)
+- [x] Final verification and cleanup
