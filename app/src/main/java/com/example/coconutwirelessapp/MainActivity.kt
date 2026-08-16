@@ -2,8 +2,11 @@ package com.example.coconutwirelessapp
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
@@ -11,16 +14,26 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.coconutwirelessapp.databinding.ActivityMainBinding
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var filePathCallback: ValueCallback<Array<Uri>>? = null
+
+    private val fileChooserLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri ->
+        filePathCallback?.onReceiveValue(if (uri != null) arrayOf(uri) else null)
+        filePathCallback = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        refreshFcmToken()
         setupWebView()
         askNotificationPermission()
 
@@ -41,13 +54,34 @@ class MainActivity : AppCompatActivity() {
     private fun setupWebView() {
         val webView = binding.appBarMain.contentMain.webview
         webView.webViewClient = WebViewClient()
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onShowFileChooser(
+                webView: WebView,
+                filePathCallback: ValueCallback<Array<Uri>>,
+                fileChooserParams: FileChooserParams
+            ): Boolean {
+                this@MainActivity.filePathCallback?.onReceiveValue(null)
+                this@MainActivity.filePathCallback = filePathCallback
+                fileChooserLauncher.launch("image/*")
+                return true
+            }
+        }
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
-        
-        // Add the Javascript Interface
         webView.addJavascriptInterface(WebAppInterface(this), "AndroidBridge")
-        
         webView.loadUrl("https://www.thecoconutwirelessnetwork.com")
+    }
+
+    // Fetch the current FCM token on every app start and store it so that
+    // WebAppInterface.getFcmToken() always has an up-to-date value ready for
+    // the website's JS to pick up via AndroidBridge.
+    private fun refreshFcmToken() {
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
+            getSharedPreferences("fcm_prefs", MODE_PRIVATE)
+                .edit()
+                .putString("fcm_token", token)
+                .apply()
+        }
     }
 
     private fun askNotificationPermission() {
@@ -62,7 +96,5 @@ class MainActivity : AppCompatActivity() {
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-        // Handle the result if needed
-    }
+    ) { _: Boolean -> }
 }

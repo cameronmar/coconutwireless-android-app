@@ -48,7 +48,12 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         notificationManager.notify(0, notificationBuilder.build())
     }
 
+    // Store the refreshed token so WebAppInterface.getFcmToken() always has the
+    // latest value available to return to the website's JavaScript.
     override fun onNewToken(token: String) {
-        // Handle new token if you want to send it to your server
+        getSharedPreferences("fcm_prefs", Context.MODE_PRIVATE)
+            .edit()
+            .putString("fcm_token", token)
+            .apply()
     }
 }

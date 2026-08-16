@@ -4,25 +4,22 @@ import android.content.Context
 import android.webkit.JavascriptInterface
 import android.widget.Toast
 
-/**
- * Instantiate the interface and set the context.
- * This class provides methods that can be called from JavaScript on your website.
- */
 class WebAppInterface(private val mContext: Context) {
 
-    /** Show a toast from the web page  */
     @JavascriptInterface
     fun showToast(toast: String) {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show()
     }
 
-    /** 
-     * Get the FCM token to send to your server.
-     * Your website coder can call this to register the device for notifications.
-     */
+    // Returns the current FCM device token so the website's JavaScript can
+    // POST it to /api/register-device/ to enable push notifications.
+    // Returns null if the token hasn't been generated yet (first install,
+    // before Firebase has called onNewToken), in which case the site's
+    // registration script simply skips — the next page load after the token
+    // arrives will register it.
     @JavascriptInterface
     fun getFcmToken(): String? {
-        // This can be expanded to return the token directly to the JS
-        return null 
+        return mContext.getSharedPreferences("fcm_prefs", Context.MODE_PRIVATE)
+            .getString("fcm_token", null)
     }
 }
