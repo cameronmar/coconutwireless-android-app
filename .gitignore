@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Sensitive files
+*.jks
+*.aab
+google-services.json
