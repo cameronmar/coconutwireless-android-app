@@ -9,4 +9,5 @@
     - [x] Update `content_main.xml`
 - [x] Implement WebView logic in `MainActivity.kt`
 - [x] Implement Push Notification service (`MyFirebaseMessagingService.kt`)
+- [x] Add google-services.json and verify build
 - [x] Final verification and cleanup

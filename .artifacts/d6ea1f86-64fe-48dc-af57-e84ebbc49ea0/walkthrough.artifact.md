@@ -13,17 +13,17 @@ I have successfully converted your app into a full-screen WebView wrapper for `w
     - Added a `MyFirebaseMessagingService` to handle incoming messages.
     - Implemented a notification channel and permission request for Android 13+.
 - **Internet Permission:** Added the necessary permissions to `AndroidManifest.xml`.
+- **JavaScript Bridge:** Added `AndroidBridge` to allow the website to communicate with native Android features (like showing toasts or fetching the FCM token).
+- **File Upload Support:** Enabled the photo picker so users can upload images from the website.
 
 ### Infrastructure
-- **Firebase Setup:** Added the Google Services plugin and Firebase dependencies to the project.
-
-## ⚠️ Action Required
-To complete the setup and enable push notifications, you must:
-1. Create a project in the [Firebase Console](https://console.firebase.google.com/).
-2. Add an Android app with the package name `com.thecoconutwirelessnetwork.app`.
-3. Download the `google-services.json` file.
-4. **Copy the file into the `app/` folder** of your project in Android Studio.
+- **Firebase Setup:** Added the Google Services plugin and Firebase dependencies.
+- **Package Rename:** Renamed the app to **Coconut Wireless Network** and the package ID to `com.thecoconutwirelessnetwork.app`.
+- **Git Integration:** Initialized a Git repository and pushed to [GitHub](https://github.com/cameronmar/coconutwireless-android-app).
 
 ## Verification
-- The project structure is ready.
-- The build will succeed once the `google-services.json` file is added.
+- **Build Status:** ✅ **SUCCESSFUL**. The `google-services.json` has been added, and the app compiles perfectly.
+- **Firebase:** The app is now fully connected to your Firebase project.
+
+## Next Steps
+- **Play Store:** Start the process of creating a Google Play Developer account.

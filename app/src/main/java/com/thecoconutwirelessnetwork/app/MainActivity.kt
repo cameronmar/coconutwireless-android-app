@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         refreshFcmToken()
-        setupWebView()
+        setupWebView(savedInstanceState)
         askNotificationPermission()
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setupWebView() {
+    private fun setupWebView(savedInstanceState: Bundle?) {
         val webView = binding.appBarMain.contentMain.webview
         webView.webViewClient = WebViewClient()
         webView.webChromeClient = object : WebChromeClient() {
@@ -69,7 +69,17 @@ class MainActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.addJavascriptInterface(WebAppInterface(this), "AndroidBridge")
-        webView.loadUrl("https://www.thecoconutwirelessnetwork.com")
+
+        if (savedInstanceState != null) {
+            webView.restoreState(savedInstanceState)
+        } else {
+            webView.loadUrl("https://www.thecoconutwirelessnetwork.com")
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.appBarMain.contentMain.webview.saveState(outState)
     }
 
     // Fetch the current FCM token on every app start and store it so that
